@@ -28,19 +28,20 @@ def main():
     out = net.forward()
     pre_fc_caffe = net.blobs['student_fc'].data
     output_flatten = np.array(pre_fc_caffe, dtype=np.float32)
-    print(output_flatten.shape)
+    print(output_flatten[:, :20])
 
     # mxnet
     _, arg_params, aux_params = mx.model.load_checkpoint(args.mx_model, args.mx_epoch)
     all_layers = _.get_internals()
-    feature = all_layers['student_fc']
+    feature = all_layers['student_fc_output']
     model = mx.mod.Module(symbol=feature, data_names=['data'], label_names=[])
-
     model.bind(data_shapes=[('data', (1, 3, 108, 108))],
                for_training=False, force_rebind=False)
-    model.forward(mx.io.DataBatch([INPUT]))
+    model.set_params(arg_params, aux_params)
+    model.forward(mx.io.DataBatch([mx.nd.array(INPUT)]))
     feature = model.get_outputs()[0].asnumpy()
-    print(feature.shape)
+    print(feature[:, :20])
+
 
 if __name__ == '__main__':
     main()
