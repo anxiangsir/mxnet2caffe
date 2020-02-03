@@ -105,6 +105,10 @@ def Activation(txt_file, info):
     txt_file.write('\n')
     pass
 
+def Activation_Relu6(txt_file, info):
+    info[attrstr]['act_type'] = 'ReLU'
+    Activation(txt_file, info)
+    pass
 
 def Concat(txt_file, info):
     txt_file.write('layer {\n')
@@ -257,6 +261,8 @@ def write_node(txt_file, info):
         LeakyReLU(txt_file, info)
     elif info['op'] == 'elemwise_add':
         ElementWiseSum(txt_file, info)
+    elif info['op'] == 'clip':
+        Activation_Relu6(txt_file, info)
     else:
         # pprint.pprint(info)
         # sys.exit("Warning!  Unknown mxnet op:{}".format(info['op']))
