@@ -1,11 +1,9 @@
 # configs
 mx_model="model"
-epoch=100000
+epoch=300000
 
-caffe_prototxt="mobileface.prototxt"
-caffe_model="mobileface.caffemodel"
-
-
+caffe_prototxt="FaceFeature80M.prototxt"
+caffe_model="FaceFeature80M.caffemodel"
 
 # mxnet2caffe
 python test_caffe.py \

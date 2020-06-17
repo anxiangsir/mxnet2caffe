@@ -77,7 +77,7 @@ def BatchNorm(txt_file, info):
     if info[attrstr].has_key('eps'):
         txt_file.write('    eps: %s\n' % info[attrstr]['eps'])
     else:
-        txt_file.write('    eps: 0.001\n')
+        txt_file.write('    eps: 0.00002\n')
     txt_file.write('  }\n')
     txt_file.write('}\n')
     # if info['fix_gamma'] is "False":                    # TODO

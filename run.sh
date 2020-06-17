@@ -1,10 +1,10 @@
 # configs
-mx_model="model"
-mx_json="model-symbol.json"
-epoch=100000
+mx_model="/train/trainset/1/modelzoo/FaceFeatureArm30M/FaceFeatureArm30M"
+mx_json="/train/trainset/1/modelzoo/FaceFeatureArm30M/FaceFeatureArm30M.json"
+epoch=0
 
-caffe_prototxt="mobileface.prototxt"
-caffe_model="mobileface.caffemodel"
+caffe_prototxt="FaceFeatureArm30M.prototxt"
+caffe_model="FaceFeatureArm30M.caffemodel"
 
 python find_caffe.py
 python find_mxnet.py
