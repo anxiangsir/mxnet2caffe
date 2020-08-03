@@ -4,7 +4,7 @@ import mxnet as mx
 import caffe
 
 parser = argparse.ArgumentParser(description='Convert MXNet model to Caffe model')
-parser.add_argument('--mx-param',    type=int)
+parser.add_argument('--mx-param',    type=str)
 parser.add_argument('--cf-prototxt', type=str)
 parser.add_argument('--cf-model',    type=str)
 args = parser.parse_args()
