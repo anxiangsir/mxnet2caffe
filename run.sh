@@ -1,10 +1,11 @@
 # configs
-mx_model="/train/trainset/1/modelzoo/FaceFeatureArm30M/FaceFeatureArm30M"
-mx_json="/train/trainset/1/modelzoo/FaceFeatureArm30M/FaceFeatureArm30M.json"
+# mx_model=/anxiang/modelzoo/FaceFeatureArm_250ms/FaceFeatureArm_250ms
+mx_model=/train/trainset/1/modelzoo/FaceFeatureArm_250ms/FaceFeatureArm_250ms
+mx_json="{$mx_model}".json
 epoch=0
 
-caffe_prototxt="FaceFeatureArm30M.prototxt"
-caffe_model="FaceFeatureArm30M.caffemodel"
+caffe_prototxt="{$mx_model}".prototxt
+caffe_model="{$mx_model}".caffemodel
 
 python find_caffe.py
 python find_mxnet.py
